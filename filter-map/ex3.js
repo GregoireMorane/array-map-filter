@@ -49,8 +49,67 @@ Sortie attendue:
   [{ Bordeaux: 12 }, { Lille: 12 }]
 
 */
+// const bob = [
+//   { city: 'Bordeaux',
+//     curriculums: [
+//       { name: 'PHP/Symfony', numStudents: 12 },
+//       { name: 'JS/React', numStudents: 29 }
+//     ]
+//   },
+//   {
+//     city: 'La Loupe',
+//     curriculums: [
+//       { name: 'JS/Angular', numStudents: 32 }
+//     ]
+//   },
+//   {
+//     city: 'Lille',
+//     curriculums: [
+//       { name: 'PHP/Symfony', numStudents: 12 },
+//       { name: 'JS/React', numStudents: 10 }
+//     ]
+//   },
+//   {
+//     city: 'Marseille',
+//     curriculums: [
+//       { name: 'JS/React', numStudents: 16 }
+//     ]
+//   }
+// ]
+
+// const lenon = 'PHP/Symfony'
 
 function getStudentsPerCurriculum(campuses, curriculumName) {
+
+  let tab = [];
+
+  // campuses.filter((x) => {
+  //   x.curriculums.map((y) => {
+  //     if(y.name.includes(curriculumName)){
+  //       tab.push(Object.defineProperty({}, x.city, {
+  //         value : y.numStudents,
+  //         writable : true,
+  //         enumurable: true,
+  //         configurable: true}))
+  //     }
+  //   });
+  // });
+  // return tab;
+
+  campuses.filter((x) => {
+    x.curriculums.map((y) => {
+      if(y.name.includes(curriculumName)) {
+        tab.push(Object.defineProperty({}, x.city, {
+          value : y.numStudents,
+          writable : true,
+          enumerable : true,
+          configurable : true}))
+      }
+    });
+  });
+  return tab;
+
 }
 
+// console.log(getStudentsPerCurriculum(bob, lenon))
 module.exports = getStudentsPerCurriculum;
